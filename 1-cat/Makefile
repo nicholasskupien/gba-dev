@@ -11,7 +11,8 @@
 
 # --- Tonc paths ---
 # If not defined as environment variable, assumed to be 2 dirs up
-export TONCCODE	?= $(CURDIR)/../..
+export TONCCODE	?= /opt/devkitpro/tonc-code
+export DEVKITARM ?= /opt/devkitpro/devkitARM
 
 include $(TONCCODE)/tonc_rules
 
