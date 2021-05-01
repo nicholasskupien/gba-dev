@@ -39,9 +39,9 @@ GFXLIBS		:= libgfx.a
 LIBS		:= -ltonc -lgfx
 
 BUILD		:= build
-SRCDIRS		:= source
+SRCDIRS		:= source tonclib tonclib/src
 DATADIRS	:= data
-INCDIRS		:= include
+INCDIRS		:= include tonclib tonclib/include
 LIBDIRS		:= $(TONCCODE)/tonclib
 
 # --- switches ---

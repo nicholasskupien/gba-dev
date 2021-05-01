@@ -7,6 +7,8 @@
 #include <string.h>
 #include <tonc.h>
 #include "cat3.h"
+#include "brin.h"
+
 
 #define BG_COLOUR RGB15(26, 25, 23)
 
@@ -76,10 +78,16 @@ int main()
 	//   into LOW obj memory (cbb == 4)
 	memcpy(&tile_mem[4][0], cat3Tiles, cat3TilesLen);
 	memcpy(pal_obj_mem, cat3Pal, cat3PalLen);
-	pal_bg_mem[0] = BG_COLOUR;
+	// pal_bg_mem[0] = BG_COLOUR;
+	memcpy(pal_bg_mem, brinPal, brinPalLen);
+    memcpy(&tile_mem[0][0], brinTiles, brinTilesLen);
+    memcpy(&se_mem[30][0], brinMap, brinMapLen);
+
 
 	oam_init(obj_buffer, 128);
-	REG_DISPCNT= DCNT_OBJ | DCNT_OBJ_1D;
+
+	REG_BG0CNT= BG_CBB(0) | BG_SBB(30) | BG_4BPP | BG_REG_64x32;
+	REG_DISPCNT= DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0;
 
 	obj_test();
 
